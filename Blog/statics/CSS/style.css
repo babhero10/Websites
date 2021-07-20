@@ -4,7 +4,7 @@
     --font-family: 'Roboto', sans-serif;
     --navColor: #555;
     --asideBackground: #444;
-    --shadowBox: 0px 2px 1px #eee;
+    --shadowBox: 0px 1px 3px #444;
 }
 
 /*************** Reset ***************/
@@ -53,7 +53,30 @@ header {
 
 aside {
     flex-grow: 1;
-    
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: var(--asideBackground);
+    color: #fff;
+    box-shadow: var(--shadowBox);
+    padding: 1rem 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 1rem;
+    text-align: left;
+}
+
+aside ul li a{
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+aside ul li a:hover{
+    text-decoration: none;
+    color: rgb(47, 85, 255);
 }
 
 footer {
