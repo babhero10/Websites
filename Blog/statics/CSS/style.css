@@ -1,11 +1,13 @@
-/* Variables */
+/*************** Variables ***************/
 :root {
     --bodyBackgroundColor: #eee; 
     --font-family: 'Roboto', sans-serif;
     --navColor: #555;
+    --asideBackground: #444;
+    --shadowBox: 0px 2px 1px #eee;
 }
 
-/* Reset*/
+/*************** Reset ***************/
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +19,7 @@ body {
     font-family: var(--font-family);
 }
 
-/* Layout */
+/*************** Layout ***************/
 .container {
     display: flex;
     flex-direction: column;
@@ -33,6 +35,25 @@ header {
     background-color: var(--navColor);
     text-align: center;
     color: #fff;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 95%;
+    column-gap: 1rem;
+    margin: 2rem 0;
+}
+
+.main {
+    flex-grow: 3;
+}
+
+aside {
+    flex-grow: 1;
+    
 }
 
 footer {
