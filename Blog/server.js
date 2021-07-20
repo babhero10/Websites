@@ -13,7 +13,8 @@ app.use(express.json());
 
 /* Set routers */
 app.get('/', (req, res) => {
-    res.render('articles/index', {title: "home"});
+    article = [{link: 'https://google.com', name: 'Google'}];
+    res.render('articles/index', {title: "home", lastArticles:article});
 });
 
 app.listen(port, () => {console.log(`Server running on port ${port}`)});

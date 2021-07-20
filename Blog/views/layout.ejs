@@ -7,8 +7,27 @@
     <title><%= title %></title>
 </head>
 <body>
-    <h1>Hello</h1>
-    <%- body %> 
-    <h5>Bye</h5>
+    <div class="container">
+        <header>
+            <h1>Blog</h1>
+        </header>
+    
+        <div class="content">
+            <%- body %> 
+            <aside>
+                <h2>Last articles</h2>
+                <ul>
+                    <% lastArticles.forEach((item) => { %>
+                        <li><a href="<%= item.link %>" target="_blank"><%= item.name %> </a></li>
+                    <% }); %>  
+                </ul>
+            </aside>
+        </div>
+    
+        <footer>
+            <h6>Copyright 2021 Abdallah Elsayed</h6>
+        </footer>
+    </div>
+    
 </body>
 </html>
