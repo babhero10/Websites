@@ -41,25 +41,25 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     width: 95%;
     column-gap: 1rem;
     margin: 2rem 0;
 }
 
-.main {
+.main, aside{
     flex-grow: 3;
-}
-
-aside {
-    flex-grow: 1;
     text-align: center;
     border: 1px solid black;
     border-radius: 10px;
     background-color: var(--asideBackground);
     color: #fff;
-    box-shadow: var(--shadowBox);
     padding: 1rem 0;
+}
+
+aside {
+    flex-grow: 1;
+    box-shadow: var(--shadowBox);
+    height: fit-content;
 }
 
 ul {
