@@ -34,3 +34,12 @@ header {
     text-align: center;
     color: #fff;
 }
+
+footer {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--navColor);
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.05rem;
+}
