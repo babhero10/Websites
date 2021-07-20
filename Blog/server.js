@@ -10,6 +10,7 @@ app.set('view engine', 'ejs');
 app.use(expressLayout);
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use('/statics', express.static('statics'));
 
 /* Set routers */
 app.get('/', (req, res) => {
