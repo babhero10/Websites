@@ -1,17 +1,13 @@
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
-<h2>Hello 2</h2>
+<% articles.forEach((article) => { %> 
+    <div class="article">
+        <div class="article_info">
+            <a href='/' class="article_auther_name"><%= article.author %> </a>
+            <span class="article_date"><%= article.createAt.toLocaleString() %> </span>
+        </div>
+        <hr>
+        <div class="article_content">
+            <p class="article_title"><%= article.title %> </p>
+            <p class="article_description"><%= article.description %> </p>
+        </div>
+    </div>
+<% }) %> 
