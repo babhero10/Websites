@@ -77,6 +77,10 @@ ul {
     text-align: left;
 }
 
+aside ul li {
+    margin-bottom: 1rem;
+}
+
 aside ul li a{
     text-decoration: none;
     color: #fff;
