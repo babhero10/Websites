@@ -1,5 +1,5 @@
 <% articles.forEach((article) => { %> 
-    <div class="article">
+    <div class="article" id="<%= article.id %>">
         <div class="article_info">
             <a href='/' class="article_auther_name"><%= article.author %> </a>
             <span class="article_date"><%= article.createAt.toLocaleString() %> </span>
@@ -8,6 +8,13 @@
         <div class="article_content">
             <p class="article_title"><%= article.title %> </p>
             <p class="article_description"><%= article.description %> </p>
+        </div>
+        <div class="modifiers">
+            <a href="article/:<%= article.slug %> ">Show</a>
+            <a href="article/edit/<%= article.id %> ">Edit</a>
+            <form action="/article/<%= article.id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+            </form>
         </div>
     </div>
 <% }) %> 
