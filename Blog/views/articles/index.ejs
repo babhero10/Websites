@@ -1,20 +1,31 @@
-<% articles.forEach((article) => { %> 
-    <div class="article" id="<%= article.id %>">
-        <div class="article_info">
-            <a href='/' class="article_auther_name"><%= article.author %> </a>
-            <span class="article_date"><%= article.createAt.toLocaleString() %> </span>
+<div class="main">
+    <% articles.forEach((article) => { %> 
+        <div class="article" id="<%= article.id %>">
+            <div class="article_info">
+                <a href='/' class="article_auther_name"><%= article.author %> </a>
+                <span class="article_date"><%= article.createAt.toLocaleDateString() %> </span>
+            </div>
+            <hr>
+            <div class="article_content">
+                <p class="article_title"><%= article.title %> </p>
+                <p class="article_description"><%= article.description %> </p>
+            </div>
+            <div class="modifiers">
+                <a href="/articles/show/<%= article.slug %> ">Read more</a>
+                <a href="/articles/edit/<%= article.id %> ">Edit</a>
+                <form action="/articles/<%= article.id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
         </div>
-        <hr>
-        <div class="article_content">
-            <p class="article_title"><%= article.title %> </p>
-            <p class="article_description"><%= article.description %> </p>
-        </div>
-        <div class="modifiers">
-            <a href="article/:<%= article.slug %> ">Show</a>
-            <a href="article/edit/<%= article.id %> ">Edit</a>
-            <form action="/article/<%= article.id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
-            </form>
-        </div>
-    </div>
-<% }) %> 
+    <% }) %> 
+</div>
+<aside>
+    <h2>Last articles</h2>
+    <ul>
+        <% lastArticles.forEach((item) => { %>
+            <li><a href="/articles/show/<%= item.slug %>" target="_blank"><%= item.title %> </a></li>
+        <% }); %>  
+    </ul>
+    <a href="/articles/add">Add me own article</a>
+</aside>
