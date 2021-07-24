@@ -8,7 +8,24 @@
     <link rel="stylesheet" href="/statics/CSS/style.css">
 </head>
 <body>
-    <h1>Hello</h1>
+    <header>
+        <div class="log">
+            <h1>BLOG</h1>
+        </div>
+        <div class="user">
+            <% if (login) { %> 
+                <img src="<%= user.img %> " alt="<%= user.name %> ">
+                <span><%= user.name %> </span>
+            <% } else { %> 
+                <form action="/user/login" method="POST">
+                    <input type="text" name="username" id="username">
+                    <input type="password" name="password" id="password">
+                    <input type="submit" value="Login">
+                    <a href="/user/signUp">SignUp</a>
+                </form>
+            <% } %> 
+        </div>
+    </header>
     <%- body %> 
 </body>
 </html>
