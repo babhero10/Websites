@@ -15,6 +15,8 @@ app.set('view engine', 'ejs');
 const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
 
+// Statics files
+app.use('/statics/', express.static('statics'));
 
 app.get('/', (req, res) => {
     res.send("Hello, World!");
