@@ -19,8 +19,8 @@ app.use(expressLayouts);
 app.use('/statics/', express.static('statics'));
 
 app.get('/', (req, res) => {
-    const user = {name: "Abdallah", img: "https://yt3.ggpht.com/yti/APfAmoE7bXPMNW4bdn9QcSwgQqk_mytQzn0O7SfuyzjqDg=s88-c-k-c0x00ffffff-no-rj-mo"};
-    res.render('articles/index', {user: user, login: false});
+    const user = {name: "Abdallah Elsayed", img: "https://yt3.ggpht.com/yti/APfAmoE7bXPMNW4bdn9QcSwgQqk_mytQzn0O7SfuyzjqDg=s88-c-k-c0x00ffffff-no-rj-mo"};
+    res.render('articles/index', {user: user, login: true});
 });
 
 app.listen(port, ()=>{console.log(`Server running on port ${port}`)});
