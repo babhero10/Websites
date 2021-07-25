@@ -20,18 +20,23 @@
             <h1>BLOG</h1>
         </div>
         <div class="user">
-            <% if (login) { %> 
-                <div class="userInfo">
-                    <img src="<%= user.img %> " alt="<%= user.name %> ">
-                    <span><%= user.name %> </span>
-                </div>
-            <% } else { %> 
-                <form action="/user/login" method="POST">
-                    <input type="text" name="username" id="username" placeholder="Username">
-                    <input type="password" name="password" id="password" placeholder="Password">
-                    <input type="submit" value="Login" class="btn">
-                    <a href="/user/signUp" class="btn">SignUp</a>
-                </form>
+            <% if (!cancle) { %> 
+                <% if (login) { %> 
+                    <div class="userInfo">
+                        <img src="<%= user.img %> " alt="<%= user.name %> ">
+                        <span><%= user.name %> </span>
+                        <form action="/user/logout" method="POST">
+                            <input type="submit" class="btn" value="logout">
+                        </form>
+                    </div>
+                <% } else { %> 
+                    <form action="/user/login" method="POST">
+                        <input type="text" name="username" id="username" placeholder="Username">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                        <input type="submit" value="Login" class="btn">
+                        <a href="/user/signUp" class="btn">SignUp</a>
+                    </form>
+                <% } %> 
             <% } %> 
         </div>
     </header>
