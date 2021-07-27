@@ -31,8 +31,7 @@ const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
 
 // Statics files
-app.use('/statics/', express.static('statics'));
-app.use('/user_images/', express.static('users_images'));
+app.use('/public/', express.static('public'));
 
 const authorized = require('./middleware/authorization');
 

@@ -18,7 +18,7 @@ const userSchema = schema({
     },
     img: {
         type: String,
-        default: "/user_images/defaultUser.jpg"
+        default: "/users_images/defaultUser.jpg"
     }
 });
 
