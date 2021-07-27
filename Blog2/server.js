@@ -8,6 +8,14 @@ const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+// mongoose
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/Data', {useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true});
+
+// Cookies
+const cookieParser  = require('cookie-parser');
+app.use(cookieParser());
+
 // method override
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
@@ -24,10 +32,17 @@ app.use(expressLayouts);
 
 // Statics files
 app.use('/statics/', express.static('statics'));
+app.use('/user_images/', express.static('users_images'));
 
+const authorized = require('./middleware/authorization');
 
-app.get('/', (req, res) => {
-    const user = {name: "Abdallah Elsayed", img: "https://yt3.ggpht.com/yti/APfAmoE7bXPMNW4bdn9QcSwgQqk_mytQzn0O7SfuyzjqDg=s88-c-k-c0x00ffffff-no-rj-mo"};
+app.get('/', authorized, (req, res) => {  
+    const user = {
+        name: req.userData.name,
+        img: req.userData.img
+    }  
+
+    console.log(user);
     res.render('articles/index', {user: user, login: true, cancle: 0});
 });
 
