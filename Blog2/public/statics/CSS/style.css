@@ -28,7 +28,7 @@ header {
     position: relative;
 }
 
-header::after {
+/* header::after {
     content: '';
     display: block;
     position: absolute;
@@ -38,7 +38,7 @@ header::after {
     z-index: -1;
     transform: skewY(1deg);
     transform-origin: top left;
-}
+} */
 
 header .log {
     padding: 1rem;
@@ -118,4 +118,12 @@ input:focus {
 
 .container form * {
     margin: .25rem 0;
+}
+
+.alert {
+    position:absolute;
+    margin: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
 }

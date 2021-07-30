@@ -12,9 +12,22 @@ app.use(express.json());
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/Data', {useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true});
 
+
 // Cookies
 const cookieParser  = require('cookie-parser');
 app.use(cookieParser());
+
+// Sessions
+const session = require('express-session');
+app.use(session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+}));
+
+// flash
+const flash = require('connect-flash');
+app.use(flash());
 
 // method override
 const methodOverride = require('method-override');
@@ -22,6 +35,7 @@ app.use(methodOverride('_method'));
 
 // Routers
 const userRouter = require('./routers/user');
+const articleRouter = require('./routers/articles');
 
 // Ejs
 app.set('view engine', 'ejs');
@@ -41,11 +55,20 @@ app.get('/', authorized, (req, res) => {
         img: req.userData.img
     }  
 
-    console.log(user);
-    res.render('articles/index', {user: user, login: true, cancle: 0});
+    const msg = req.flash('msg');
+    let succ = false;
+    let err = false;
+    
+    if (msg.length) {
+        succ = msg[0].succ;
+        err = msg[0].err;
+    }
+
+    res.render('articles/index', {user: user, login: true, cancle: 0, succ: succ, err: err});
 });
 
 // Routers
 app.use('/user', userRouter);
+app.use('/articles', articleRouter);
 
 app.listen(port, ()=>{console.log(`Server running on port ${port}`)});
