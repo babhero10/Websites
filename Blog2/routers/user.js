@@ -94,7 +94,7 @@ userRouter.post('/login', async (req, res) => {
                     if (result) {
                         res.cookie("userData", {id: found._id, name: found.name, img: found.img});
                         req.flash('msg', {succ: "Login in successfully!", err: false});
-                        res.redirect('/');
+                        res.redirect('/articles/');
                     } else {
                         req.flash('msg', {succ: false, err: "Username or password not correct!"});
                         res.redirect('/user/login');
@@ -155,7 +155,7 @@ userRouter.post('/sign_up', async (req, res) => {
             await newUser.save();
             res.cookie("userData", {id: newUser._id, name: newUser.name, img: newUser.img});
             req.flash('msg', {succ: "You have been added!", err: false});
-            res.redirect('/');
+            res.redirect('/articles/');
         } catch(err) {
             req.flash('msg', {succ: false, err: "Something went wrong!"});
             res.redirect('/user/sign_up');
@@ -169,11 +169,12 @@ userRouter.post('/sign_up', async (req, res) => {
 
 userRouter.post('/logout', (req, res) => {
     res.clearCookie('userData');
-    res.redirect('/');
+    res.redirect('/articles/');
 });
 
 userRouter.get('/all', async (req, res) => {
     res.send(await User.find());
 });
+
 
 module.exports = userRouter;

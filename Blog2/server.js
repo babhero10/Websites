@@ -12,7 +12,6 @@ app.use(express.json());
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/Data', {useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true});
 
-
 // Cookies
 const cookieParser  = require('cookie-parser');
 app.use(cookieParser());
@@ -45,7 +44,7 @@ const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
 
 // Statics files
-app.use('/public/', express.static('public'));
+app.use('/public', express.static('public'));
 
 const authorized = require('./middleware/authorization');
 

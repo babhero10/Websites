@@ -1,0 +1,16 @@
+<div class="articles_main">
+    <% articles.forEach((article) => { %>
+        <div class="article">
+            <div class="articleInfo">
+                <span class="article_auther_name"><%= article.auther %> </span>
+                <span class="article_date"><%= article.createdAt.toDateString() %> </span>
+            </div>
+            <hr>
+            <div class="articleContent">
+                <h2 class="article_title"><%= article.title %> </h2>
+                <p class="article_description"><%= article.description %> </p>
+            </div>
+        </div>
+    <% }); %> 
+    
+</div>
