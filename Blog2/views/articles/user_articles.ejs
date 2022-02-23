@@ -1,4 +1,6 @@
+
 <div class="articles_main">
+    <a href="/articles/add" id="add_new" class="btn ">Add article</a>
     <% articles.forEach((article) => { %>
         <div class="article">
             <div class="articleInfo">
@@ -10,8 +12,14 @@
                 <h2 class="article_title"><%= article.title %> </h2>
                 <p class="article_description"><%= article.description %> </p>
             </div>
+            <div class="articleEdit">
             <a href="/articles/show/<%= article.slug %>"  class="btn">Show</a>
+            <a href="/articles/edit/<%= article.id %>"  class="btn">Edit</a>
+            <form action="/articles/remove/<%= article.id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Remove" class="btn">
+            </form>
+            </div>
         </div>
     <% }); %> 
-    
+
 </div>

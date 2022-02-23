@@ -19,7 +19,7 @@ body {
     color: #fff;
 }
 
-/* Layout */
+/***************** Layout *****************/
 header {
     display: flex;
     flex-flow: row wrap;
@@ -40,8 +40,12 @@ header {
     transform-origin: top left;
 } */
 
-header .log {
+header .logo {
     padding: 1rem;
+}
+
+header .logo h1 {
+    font-weight: bold;
 }
 
 input, .btn {
@@ -120,6 +124,30 @@ input:focus {
     margin: .25rem 0;
 }
 
+/* Navgation */
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--headerColor);
+    list-style-type: none;
+}
+nav ul li {
+    width: 100%;
+    background-color: var(--headerColor);
+    text-align: center;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+nav ul li:hover {
+    background-color: var(--btnColor);
+}
+
+nav ul li a {
+    display: inline-block;
+    width: inherit;
+}
+
 /* Articles */
 .articles_main {
     display: flex;
@@ -179,7 +207,8 @@ a {
 
 a:hover {
     cursor: pointer;
-    color: rgb(47, 85, 255);
+    text-decoration: none;
+    color: rgb(231, 231, 231);
 }
 
 /* Bootstrap */
@@ -187,6 +216,16 @@ a:hover {
     position:absolute;
     margin: 0;
     bottom: 0;
-    width: 100%;
     z-index: 2;
+}
+
+.show {
+    margin: 1rem;
+}
+
+#add_new {
+    width: 80%;
+    background-color: rgb(3, 175, 3);
+    margin: 0.5rem 0;
+    border: none;
 }
